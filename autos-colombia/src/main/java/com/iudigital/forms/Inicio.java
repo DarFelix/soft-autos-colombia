@@ -5,6 +5,10 @@
  */
 package com.iudigital.forms;
 
+import com.iudigital.clase.Persona;
+import com.iudigital.dao.LoginDao;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author LenovoZ470
@@ -14,8 +18,12 @@ public class Inicio extends javax.swing.JFrame {
     /**
      * Creates new form Inicio
      */
+    public static String cedula = "";
+    public static String clave = "";
+
     public Inicio() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -88,11 +96,21 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         txtPass.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        txtPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPassActionPerformed(evt);
+            }
+        });
 
         btnIngresar.setBackground(new java.awt.Color(255, 102, 0));
         btnIngresar.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 18)); // NOI18N
         btnIngresar.setText("Ingresar");
         btnIngresar.setToolTipText("");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\LenovoZ470\\OneDrive\\Escritorio\\Soft_deve\\Ingen. software\\logo_usuario1.jpg")); // NOI18N
@@ -175,6 +193,31 @@ public class Inicio extends javax.swing.JFrame {
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUserActionPerformed
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        // TODO add your handling code here:
+        cedula = txtUser.getText();
+        clave = txtPass.getText();
+
+        LoginDao logi = new LoginDao();
+
+        Persona person = logi.logueo(cedula, clave);
+
+        if (person.getNumeroDoc() == null) {
+            JOptionPane.showMessageDialog(this, "Usuario y/o contraseña incorrecta");
+        } else {
+            dispose();
+
+            Menu menu = new Menu(this, true);
+            menu.setVisible(true);
+            this.dispose();
+        }
+
+    }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPassActionPerformed
 
     /**
      * @param args the command line arguments
