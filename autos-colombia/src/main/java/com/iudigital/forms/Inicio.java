@@ -7,7 +7,9 @@ package com.iudigital.forms;
 
 import com.iudigital.clase.Persona;
 import com.iudigital.dao.LoginDao;
+import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  *
@@ -196,6 +198,8 @@ public class Inicio extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
+        
+        
         cedula = txtUser.getText();
         clave = txtPass.getText();
 
