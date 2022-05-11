@@ -5,7 +5,6 @@
  */
 package com.iudigital.forms;
 
-
 /**
  *
  * @author LenovoZ470
@@ -17,6 +16,8 @@ public class Menu extends javax.swing.JDialog {
      */
     PanelIngresar panelIngresar;
     PanelRetirar panelRetirar;
+    PanelCelda panelCelda;
+    PanelCliente panelCliente;
 
     public Menu(java.awt.Frame parent, boolean modal) {
 
@@ -24,21 +25,26 @@ public class Menu extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
 
-     
-        
         initComponents();
-        setSize(1000,700);
+        setSize(1000, 700);
+
         panelIngresar = new PanelIngresar();
-        panelIngresar.setBounds(250,0,1000,700);
+        panelIngresar.setBounds(250, 0, 1000, 700);
         add(panelIngresar);
-        
+
+        panelCelda = new PanelCelda();
+        panelCelda.setBounds(250, 0, 1000, 700);
+        add(panelCelda);
+
+        panelCliente = new PanelCliente();
+        panelCliente.setBounds(250, 0, 1000, 700);
+        add(panelCliente);
+
         panelRetirar = new PanelRetirar();
-        panelRetirar.setBounds(250,0,1000,700);
+        panelRetirar.setBounds(250, 0, 1000, 700);
         add(panelRetirar);
         panelRetirar.setVisible(false);
     }
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,6 +59,8 @@ public class Menu extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         btnEntrada = new javax.swing.JButton();
         btnSalida = new javax.swing.JButton();
+        btnCliente = new javax.swing.JButton();
+        btnCelda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -62,7 +70,7 @@ public class Menu extends javax.swing.JDialog {
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\LenovoZ470\\OneDrive\\Escritorio\\Soft_deve\\Ingen. software\\logo_chico.png")); // NOI18N
         jLabel1.setText("jLabel1");
 
-        btnEntrada.setText("Ingresar vehículo");
+        btnEntrada.setText("Registrar vehículo");
         btnEntrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEntradaActionPerformed(evt);
@@ -76,15 +84,31 @@ public class Menu extends javax.swing.JDialog {
             }
         });
 
+        btnCliente.setText("Registrar cliente");
+        btnCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClienteActionPerformed(evt);
+            }
+        });
+
+        btnCelda.setText("Asignar celda");
+        btnCelda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCeldaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(30, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCelda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSalida, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27))
         );
@@ -96,8 +120,12 @@ public class Menu extends javax.swing.JDialog {
                 .addGap(27, 27, 27)
                 .addComponent(btnEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnCelda, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(371, Short.MAX_VALUE))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -106,7 +134,7 @@ public class Menu extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 692, Short.MAX_VALUE))
+                .addGap(0, 680, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,23 +146,49 @@ public class Menu extends javax.swing.JDialog {
 
     private void btnEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntradaActionPerformed
         // TODO add your handling code here:
-        setSize(1000,700);
+        setSize(1000, 700);
         panelIngresar.setVisible(true);
         panelRetirar.setVisible(false);
+        panelCelda.setVisible(false);
+        panelCliente.setVisible(false);
         revalidate();
         repaint();
-        
-        
+
+
     }//GEN-LAST:event_btnEntradaActionPerformed
 
     private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
         // TODO add your handling code here:
-        setSize(1000,700);
+        setSize(1000, 700);
         panelIngresar.setVisible(false);
         panelRetirar.setVisible(true);
+        panelCelda.setVisible(false);
+        panelCliente.setVisible(false);
         revalidate();
         repaint();
     }//GEN-LAST:event_btnSalidaActionPerformed
+
+    private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
+        // TODO add your handling code here:
+        setSize(1000, 700);
+        panelIngresar.setVisible(false);
+        panelRetirar.setVisible(false);
+        panelCelda.setVisible(false);
+        panelCliente.setVisible(true);
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_btnClienteActionPerformed
+
+    private void btnCeldaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCeldaActionPerformed
+        // TODO add your handling code here:
+        setSize(1000, 700);
+        panelIngresar.setVisible(false);
+        panelRetirar.setVisible(false);
+        panelCelda.setVisible(true);
+        panelCliente.setVisible(false);
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_btnCeldaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,6 +233,8 @@ public class Menu extends javax.swing.JDialog {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCelda;
+    private javax.swing.JButton btnCliente;
     private javax.swing.JButton btnEntrada;
     private javax.swing.JButton btnSalida;
     private javax.swing.JLabel jLabel1;
