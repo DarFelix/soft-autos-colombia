@@ -7,7 +7,7 @@ package com.iudigital.forms;
 
 /**
  *
- * @author LenovoZ470
+ * @author Darwin Felix
  */
 public class PanelCliente extends javax.swing.JPanel {
 

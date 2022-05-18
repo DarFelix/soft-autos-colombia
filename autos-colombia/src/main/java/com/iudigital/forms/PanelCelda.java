@@ -7,7 +7,7 @@ package com.iudigital.forms;
 
 /**
  *
- * @author LenovoZ470
+ * @author Darwin Felix
  */
 public class PanelCelda extends javax.swing.JPanel {
 

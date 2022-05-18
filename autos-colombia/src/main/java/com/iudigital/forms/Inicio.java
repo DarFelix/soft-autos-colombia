@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.iudigital.forms;
 
 import com.iudigital.clase.Persona;
@@ -13,13 +8,11 @@ import javax.swing.UIManager;
 
 /**
  *
- * @author LenovoZ470
+ * @author Darwin Felix
  */
 public class Inicio extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Inicio
-     */
+  
     public static String cedula = "";
     public static String clave = "";
 
@@ -274,3 +267,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
+/**
+ *
+ * @author Darwin Felix
+ */

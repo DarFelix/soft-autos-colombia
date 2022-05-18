@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author LenovoZ470
+ * @author Darwin Felix
  */
 public class PanelIngresar extends javax.swing.JPanel {
 

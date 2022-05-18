@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.iudigital.dao;
 
 import com.iudigital.clase.Vehiculo;
@@ -13,7 +8,7 @@ import java.sql.Statement;
 
 /**
  *
- * @author LenovoZ470
+ * @author Darwin Felix
  */
 public class VehiDao {
 

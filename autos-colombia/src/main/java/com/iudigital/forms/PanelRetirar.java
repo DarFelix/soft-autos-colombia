@@ -7,7 +7,7 @@ package com.iudigital.forms;
 
 /**
  *
- * @author LenovoZ470
+ * @author Darwin Felix
  */
 public class PanelRetirar extends javax.swing.JPanel {
 
@@ -125,3 +125,7 @@ public class PanelRetirar extends javax.swing.JPanel {
     private javax.swing.JTextField txtPlaca;
     // End of variables declaration//GEN-END:variables
 }
+/**
+ *
+ * @author Darwin Felix
+ */
